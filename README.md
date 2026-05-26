@@ -18,6 +18,7 @@
 - [Features](#-features)
 - [Prerequisites](#-prerequisites)
 - [Setup & Installation](#️-setup--installation)
+- [Language Support (LazyExtras)](#-language-support-lazyextras)
 - [License](#-license)
 
 ---
@@ -84,7 +85,15 @@ chmod +x rollback && ./rollback.sh
 
 > **Note:** This command will restore your configuration using the **emergency cache** stored in `~/.cache`.
 
----
+## 🧩 Language Support (LazyExtras)
+
+This configuration utilizes **LazyExtras** to manage plugins for specific programming languages cleanly and efficiently.
+
+## **Go**, **Rust**, **TypeScript**, etc
+
+1. Open Neovim.
+2. Run the command `:LazyExtras`.
+3. Browse the UI and easily toggle the languages or tools you need on or off.
 
 ## 📜 License
 
