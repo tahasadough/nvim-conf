@@ -4,7 +4,6 @@ return {
     ensure_installed = {
       "bash-language-server",
       "shfmt",
-      "shellcheck",
       "html-lsp",
       "css-lsp",
     },
