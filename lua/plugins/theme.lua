@@ -1,0 +1,1 @@
+/home/taha/.config/omarchy/current/theme/neovim.lua
