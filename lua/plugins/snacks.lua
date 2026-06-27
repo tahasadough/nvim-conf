@@ -20,16 +20,6 @@ return {
         ]],
       },
     },
-    notifier = {
-      filter = function(n)
-        if type(n.msg) == "string" then
-          if n.msg:find("attempt to index local 'semantic'") or n.msg:find("Snacks Error in handler") then
-            return false
-          end
-        end
-        return true
-      end,
-    },
     picker = {
       sources = {
         explorer = {
