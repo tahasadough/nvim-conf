@@ -7,6 +7,8 @@ return {
       "shfmt",
       "html-lsp",
       "css-lsp",
+      "actionlint",
+      "yamllint",
     },
   },
 }
