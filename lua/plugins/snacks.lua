@@ -23,6 +23,7 @@ return {
     picker = {
       sources = {
         explorer = {
+          hidden = true,
           layout = { layout = { position = "right" } },
         },
       },
