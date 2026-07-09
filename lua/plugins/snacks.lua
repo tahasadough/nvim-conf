@@ -21,12 +21,38 @@ return {
       },
     },
     picker = {
+      hidden = true,
       sources = {
-        explorer = {
+        files = {
           hidden = true,
+        },
+        explorer = {
           layout = { layout = { position = "right" } },
         },
       },
+    },
+  },
+  keys = {
+    {
+      "<leader><leader>",
+      function()
+        Snacks.picker.files()
+      end,
+      desc = "Find Files",
+    },
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Smart Search",
+    },
+    {
+      "<leader>fg",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Grep Search",
     },
   },
 }
