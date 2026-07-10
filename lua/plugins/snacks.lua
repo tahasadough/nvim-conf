@@ -36,23 +36,9 @@ return {
     {
       "<leader><leader>",
       function()
-        Snacks.picker.files()
-      end,
-      desc = "Find Files",
-    },
-    {
-      "<leader>ff",
-      function()
         Snacks.picker.smart()
       end,
-      desc = "Smart Search",
-    },
-    {
-      "<leader>fg",
-      function()
-        Snacks.picker.grep()
-      end,
-      desc = "Grep Search",
+      desc = "Smart Find Files",
     },
   },
 }
