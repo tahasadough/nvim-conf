@@ -1,37 +1,41 @@
 ---@diagnostic disable: missing-fields
 return {
   "nvim-neotest/neotest",
+  event = "VeryLazy",
+
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
-
     "fredrikaverpil/neotest-golang",
-    "rouge8/neotest-rust",
+    "mrcjkb/rustaceanvim",
     "nvim-neotest/neotest-jest",
     "marilari88/neotest-vitest",
+    "antoinemadec/FixCursorHold.nvim",
   },
+
   config = function()
     local neotest = require("neotest")
+    local root_pattern = require("lspconfig.util").root_pattern
 
     neotest.setup({
       adapters = {
         require("neotest-golang")({
-          go_test_args = { "-v", "-race", "-count=1", "-timeout=60s" },
+          go_test_args = {
+            "-v",
+            "-race",
+            "-count=1",
+            "-timeout=60s",
+          },
         }),
-
-        require("neotest-rust")({
-          args = { "--no-capture" },
-          dap_adapter = "lldb",
-        }),
-
+        require("rustaceanvim.neotest"),
         require("neotest-jest")({
           jestCommand = "npm test --",
-          env = { CI = true },
+          env = {
+            CI = true,
+          },
           cwd = function(path)
-            return require("lspconfig.util").root_pattern("package.json", "jest.config.js", "jest.config.ts")(path)
+            return root_pattern("jest.config.js", "jest.config.ts", "package.json")(path)
           end,
         }),
-
         require("neotest-vitest")({
           filter_dir = function(name)
             return name ~= "node_modules"
@@ -39,8 +43,14 @@ return {
         }),
       },
 
-      status = { virtual_text = false },
-      output = { open_on_run = true },
+      status = {
+        virtual_text = false,
+      },
+
+      output = {
+        open_on_run = true,
+      },
+
       quickfix = {
         open = function()
           vim.cmd("copen")
@@ -69,21 +79,31 @@ return {
       function()
         require("neotest").run.run(vim.uv.cwd())
       end,
-      desc = "Run All Tests in Project",
+      desc = "Run Project Tests",
+    },
+    {
+      "<leader>td",
+      function()
+        require("neotest").run.run({ strategy = "dap" })
+      end,
+      desc = "Debug Nearest Test",
     },
     {
       "<leader>ts",
       function()
         require("neotest").summary.toggle()
       end,
-      desc = "Toggle Test Summary panel",
+      desc = "Toggle Summary",
     },
     {
       "<leader>to",
       function()
-        require("neotest").output.open({ enter = true, auto_close = true })
+        require("neotest").output.open({
+          enter = true,
+          auto_close = true,
+        })
       end,
-      desc = "Open Test Output",
+      desc = "Open Output",
     },
     {
       "<leader>tO",
@@ -97,7 +117,7 @@ return {
       function()
         require("neotest").run.stop()
       end,
-      desc = "Stop Running Tests",
+      desc = "Stop Tests",
     },
   },
 }
