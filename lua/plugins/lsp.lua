@@ -7,7 +7,7 @@ return {
       },
       servers = {
         emmet_language_server = {
-          filetypes = { "html", "css", "javascriptreact", "typescriptreact", "vue", "svelte" },
+          filetypes = { "html", "css", "templ", "javascriptreact", "typescriptreact", "vue", "svelte" },
         },
       },
     },

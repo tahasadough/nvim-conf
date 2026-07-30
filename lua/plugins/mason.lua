@@ -3,6 +3,7 @@ return {
   opts = {
     ensure_installed = {
       "rust-analyzer",
+      "templ",
       "bash-language-server",
       "shfmt",
       "html-lsp",
