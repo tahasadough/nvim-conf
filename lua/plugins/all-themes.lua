@@ -66,6 +66,11 @@ return {
     priority = 1000,
   },
   {
+    "tahasadough/noir.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+  {
     "shaunsingh/nord.nvim",
     lazy = true,
     priority = 1000,
@@ -97,14 +102,3 @@ return {
     priority = 1000,
   },
 }
-
--- return {
---   "sainnhe/gruvbox-material",
---   lazy = false,
---   priority = 1000,
---   config = function()
---     vim.g.gruvbox_material_background = "hard"
---
---     vim.cmd.colorscheme("gruvbox-material")
---   end,
--- }

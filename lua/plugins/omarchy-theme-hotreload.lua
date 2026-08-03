@@ -6,6 +6,18 @@ return {
     priority = 1000,
     config = function()
       local transparency_file = vim.fn.stdpath("config") .. "/plugin/after/transparency.lua"
+      local theme_link = vim.fn.stdpath("config") .. "/lua/plugins/theme.lua"
+      local prev_mtime = vim.fn.getftime(theme_link)
+
+      vim.fn.timer_start(1000, function()
+        local mtime = vim.fn.getftime(theme_link)
+        if mtime ~= prev_mtime then
+          prev_mtime = mtime
+          if mtime ~= -1 then
+            vim.api.nvim_exec_autocmds("User", { pattern = "LazyReload", modeline = false })
+          end
+        end
+      end, { ["repeat"] = -1 })
 
       vim.api.nvim_create_autocmd("User", {
         pattern = "LazyReload",
