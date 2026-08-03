@@ -31,8 +31,6 @@
   <br>
   <img src="screenshots/3.png" alt="Screenshot 3" width="49%">
   <img src="screenshots/4.png" alt="Screenshot 4" width="49%">
-  <br>
-  <img src="screenshots/5.png" alt="Screenshot 5" width="80%">
 </div>
 
 ---
