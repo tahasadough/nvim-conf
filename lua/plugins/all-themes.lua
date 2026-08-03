@@ -66,11 +66,6 @@ return {
     priority = 1000,
   },
   {
-    "tahasadough/noir.nvim",
-    lazy = true,
-    priority = 1000,
-  },
-  {
     "shaunsingh/nord.nvim",
     lazy = true,
     priority = 1000,
