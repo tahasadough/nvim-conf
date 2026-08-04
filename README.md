@@ -64,7 +64,7 @@ This repository includes a `setup.sh` script designed to safely manage your Neov
 Clone the repository and run the setup script:
 
 ```bash
-git clone https://github.com/tahasadough/nvim-conf.git && cd nvim-conf && chmod +x setup.sh && ./setup.sh
+git clone https://github.com/tahadx/nvim-conf.git && cd nvim-conf && chmod +x setup.sh && ./setup.sh
 ```
 
 ### 2. What `setup.sh` does
